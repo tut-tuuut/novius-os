@@ -6,6 +6,7 @@
  *             http://www.gnu.org/licenses/agpl-3.0.html
  * @link http://www.novius-os.org
  */
+
 define('jquery-nos-wysiwyg',
     [
         'module',
@@ -30,7 +31,9 @@ define('jquery-nos-wysiwyg',
                         plugins    : 'spellchecker,xhtmlxtras,style,table,advlist,inlinepopups,media,searchreplace,paste,noneditable,visualchars,nonbreaking',
                         paste_text_use_dialog : true,
                         theme_nos_enhancers : enhancers,
-                        theme_nos_lang: self.closest('.nos-dispatcher').data('nosLang')
+                        theme_nos_lang: self.closest('.nos-dispatcher').data('nosLang'),
+                        valid_children: "+body[style],+div[style]",
+                        extended_valid_elements: "style"
                     }, options || {});
 
                     $(self).tinymce(options);
